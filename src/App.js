@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import "./styles/App.css";
 
 import SearchBook from "./pages/SearchBook";
-import ListBooks from "./pages/ListBooks";
+import ListBookFilter from "./pages/ListBookFilter";
 import * as BooksAPI from "./services/BooksAPI";
 
 class BooksApp extends React.Component {
@@ -37,7 +37,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <Route exact path="/" render={() => <ListBooks booksOnShelf={this.state.books} />} />
+        <Route exact path="/" render={() => <ListBookFilter booksOnShelf={this.state.books} />} />
         <Route path="/search" render={() => <SearchBook onChangeShelf={this.handleChangeShelf} booksOnShelf={this.state.books} />}
         />
       </div>

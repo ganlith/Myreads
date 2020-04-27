@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ListBookFront from "./ListBookFront";
+import ListBookDetails from "./ListBookDetails";
 import * as BooksAPI from "../services/BooksAPI";
 import "../styles/App.css";
 
-class ListBooks extends React.Component {
+class ListBookFilter extends React.Component {
 
   state = {};
 
@@ -27,21 +27,21 @@ class ListBooks extends React.Component {
         </div>
         <div className="list-books-content">
 
-          <ListBookFront
+          <ListBookDetails
             key="currentlyReading"
             books={this.props.booksOnShelf.filter(book => book.shelf === "currentlyReading")}
             onChangeShelf={this.handleChangeShelf}
             shelftitle="Currently Reading"
           />
           
-          <ListBookFront
+          <ListBookDetails
             key="wantToRead"
             books={this.props.booksOnShelf.filter(book => book.shelf === "wantToRead")}
             onChangeShelf={this.handleChangeShelf}
             shelftitle="Want to Read"
           />
 
-          <ListBookFront
+          <ListBookDetails
             key="read"
             books={this.props.booksOnShelf.filter(book => book.shelf === "read")}
             onChangeShelf={this.handleChangeShelf}
@@ -55,4 +55,4 @@ class ListBooks extends React.Component {
     );
   }
 }
-export default ListBooks;
+export default ListBookFilter;
